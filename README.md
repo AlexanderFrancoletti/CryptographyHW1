@@ -1,6 +1,7 @@
 # CryptographyHW1
 
-To run the program, run the server and then run the client on another terminal. The server itself doesn't actually edit any file currently, but the client takes the "inputtext.txt" file as input to send to the server. The client encrypts the file using a toy DES, and then sends the file over to the server, which receives the encrypted file and then decrypts it.
+Using python2.7
+To run the program, run server.py and sdes.py and then run client.py and sdes.py on another terminal. The server itself doesn't actually edit any file currently, but the client takes the "inputtext.txt" file as input to send to the server. The client encrypts the file using a toy DES, and then sends the file over to the server, which receives the encrypted file and then decrypts it.
 
 The DES algorithm and functions are all contained in a single file name "sdes.py". Initially it sets all the keys for each step that it's going to take during encryption, such as the initial permutation keys and substitution matrices. The process of encryption begins with the permutation of the input byte according to the initial permutation key. After that, it goes into the fk function, which does the following steps in order after a key is generated: split the byte into left and right halves, permutate the right half using the expansion/permutation key, performs an xor operation on the resulting byte with the known key, then transforms that string by checking the left and right halves of itself into a substitution matrix, doing a permutation with the initial permutation 4 bit key, and finally performing as xor operation with the initial left half.
 
